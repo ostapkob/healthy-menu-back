@@ -69,6 +69,11 @@ const genericCrud = (model, {
         data: image,
         contentType: 'image/png'
       }
+
+    }
+    else {
+      const item = await model.findById(body.id)
+      body['image'] = item['image']
     }
     let id = body.id
     delete body.id
